@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": }
+  "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@supabase/supabase-js": "^2.39.0",
@@ -27,7 +27,7 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3"
   },
-  "devDependencies": }
+  "devDependencies": {
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
@@ -36,3 +36,5 @@
     "eslint-config-next": "14.2.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
+  }
+}
