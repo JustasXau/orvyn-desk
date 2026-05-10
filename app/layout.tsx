@@ -1,33 +1,28 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-import { Sidebar } from '@/components/layout/Sidebar'
-import { TopBar } from '@/components/layout/TopBar'
+import { Providers } from '@/components/providers'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: 'Orvyn Desk — Gold Trader',
-  description: 'Analyse avancée pour le trading XAU/USD',
+  title: 'Orvyn Desk',
+  description: 'AI-powered market bias analysis dashboard for XAU/USD, US30, NASDAQ, and DXY',
 }
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
-    <html lang="fr" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-[#0f172a] text-[#f1f5f9] antialiased`}>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <div className="flex-1 flex flex-col ml-16 hover:ml-48 transition-all duration-300">
-            <TopBar />
-            <main className="flex-1 p-4 md:p-6">
-              {children}
-            </main>
-          </div>
-        </div>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${inter.variable} font-sans antialiased bg-background`}>
+        <Providers>
+          {children}
+        </Providers>
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
